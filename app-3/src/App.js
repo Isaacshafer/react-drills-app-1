@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+const [array, setArray] = useState(['hello', 'hi', 'how are you', 'howdy'])
+const [input, setInput] = useState('h')
+
+let printList =  array.filter(e => {return e.includes(input)}).map((element, index) => {
+  return <h2 key={index}>{element}</h2>
+})
+
+
+const inputHandler = e => {
+  setInput(e.target.value)
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type='text' onChange={e => {setInput(e.target.value)}} />
+      {printList}
     </div>
   );
 }
