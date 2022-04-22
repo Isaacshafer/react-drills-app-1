@@ -11,10 +11,6 @@ let printList =  array.filter(e => {return e.includes(input)}).map((element, ind
 })
 
 
-const inputHandler = e => {
-  setInput(e.target.value)
-}
-
   return (
     <div className="App">
       <input type='text' onChange={e => {setInput(e.target.value)}} />
