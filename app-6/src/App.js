@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './App.css';
 import Todo from './components/Todo';
 
-let tasksArray = []
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -12,9 +11,8 @@ function App() {
 
 
   let addTask = () => {
-    tasksArray.push(input)
-    console.log(tasksArray)
-    setTasks(tasksArray)
+
+    setTasks([...tasks, input])
     setInput('')
   }
 
